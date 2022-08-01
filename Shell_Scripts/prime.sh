@@ -17,7 +17,7 @@ do
 
     if [[ $flag == 1 ]]
     then
-        echo -ne "$i"
+        echo -ne "$i "
     fi
     flag=0
 done
