@@ -4,13 +4,12 @@ echo "Enter the number of fibonacci numbers to be printed: "
 read n
 f1=0
 f2=1
+f3=0
 echo "The first $n fibonacci numbers are: "
-echo $f1
-echo $f2
-for ((i=0; i<=$n; i++))
+for ((i=1; i<=$n; i++))
 do
-    f3=$((f1+f2))
-    echo f3
+    echo "    $f3"
     f1=$f2
     f2=$f3
+    f3=$((f1+f2))
 done
