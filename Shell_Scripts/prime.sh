@@ -15,9 +15,9 @@ do
         fi
     done
 
-    if [[ $flag == 1 ]]
+    if [[ $flag == 0 ]]
     then
-        echo -ne "$i "
+        echo -ne "$i " #This prints the numbers in a single line
     fi
     flag=0
 done
