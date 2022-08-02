@@ -27,7 +27,7 @@ then
         for ((j=0; j<col1; j++))
         do
             read mat2[$((i*col1+j))]
-            mat3[$((i*col1+j))]=${mat3[$((i*col1+j))]}+"${mat2[$((i*col1+j))]}"
+            mat3[$((i*col1+j))]=$((${mat3[$((i*col1+j))]}+${mat2[$((i*col1+j))]}))
         done
     done
 
@@ -36,7 +36,7 @@ then
     do
         for ((j=0; j<col1; j++))
         do
-            echo "${mat3[$((i*col1+j))]}"
+            echo -ne "${mat3[$((i*col1+j))]} "
         done
         echo
     done
