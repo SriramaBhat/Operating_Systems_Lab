@@ -21,8 +21,8 @@ typedef struct process {
 
 pro p[15];
 
-void swap(int *a, int *b) {
-    int temp = *a;
+void swap(pro *a, pro *b) {
+    pro temp = *a;
     *a = *b;
     *b = temp;
     return; 
@@ -32,14 +32,14 @@ void sort(int n) {
     for(int i = 0; i<n-1; i++) {
         for(int j=0; j<n-i-1; j++) {
             if(p[j].AT > p[j+1].AT) {
-                swap(&p[j].Id, &p[j+1].Id);
-                swap(&p[j].AT, &p[j+1].AT);
-                swap(&p[j].BT, &p[j+1].BT);
+                swap(&p[j], &p[j+1]);
             }
         }
     }
 }
 
+/*****************************************************************************************************************
+ * This function prints the Gantt chart in the form of lines
 void printGanttChart(int n) {
     for(int i=0; i<n; i++) {
         if(p[i].AT > p[i-1].CT) {
@@ -83,6 +83,19 @@ void printGanttChart(int n) {
         printf("%d", p[i].CT);
     }
     printf("\n");
+}
+*************************************************************************************************************/
+
+
+void printGanttChart(int n) {
+    for(int i=0; i<n; i++) {
+        if(p[i].AT > p[i-1].CT) {
+            printf("| Idle (%d) %d", p[i].AT - p[i-1].CT, p[i].AT);
+        }
+
+        printf("|P%d (%d) %d", p[i].Id, p[i].BT, p[i].CT);
+    }
+    printf("|\n");
 }
 
 void main() {
@@ -133,6 +146,6 @@ void main() {
     }
 
     printf("\nAverage TAT = %.2f\nAverage WT = %.2f\n", avg_TAT, avg_WT);
-
+    printf("\nGantt Chart:\n\n");
     printGanttChart(n);
 }
