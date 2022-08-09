@@ -73,7 +73,7 @@ void main() {
     //Printing the table of processes with details
     printf("\nPID\tAT\tBT\tCT\tTAT\tWT\n");
     for(int i=0; i<n; i++) {
-        printf("%d\t%d\t%d\t%d\t%d\t%d\n", p[i].Id, p[i].AT, p[i].BT, p[i].CT, p[i].TAT, p[i].WT);
+        printf("%d\t%d\t%d\t%d\t%d\t%d\n", p[i].Id, p[i].AT, tempBT[i], p[i].CT, p[i].TAT, p[i].WT);
     }
     printf("\nAverage TAT = %.2f\nAverage WT = %.2f\n", avg_TAT, avg_WT);
 }
